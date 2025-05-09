@@ -1,0 +1,21 @@
+{
+	"geode": "4.4.0",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "itzkiba.level_reviews",
+	"name": "Level Reviews",
+	"version": "v1.0.0",
+	"developer": "ItzKiba",
+	"description": "",
+	"resources": {
+        "spritesheets": {
+            "MainSpritesheet": [
+                "resources/*.png"
+            ]
+		}
+	}
+}

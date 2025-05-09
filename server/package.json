@@ -1,0 +1,38 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint src/**/*.ts",
+    "lintfix": "eslint src/**/*.ts --fix",
+    "build": "rm -rf dist && mkdir dist && cp -r src/* dist/ && npx tsc -p .",
+    "clean": "rm -rf dist",
+    "start": "npm run build && node .",
+    "watch": "npx tsc -p . --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "prisma": "^6.4.1",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.4.1",
+    "body-parser": "^1.20.3",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "morgan": "^1.10.0",
+    "node": "^23.7.0",
+    "postgres": "^3.4.5",
+    "ts-node": "^10.9.2",
+    "ts-results": "^3.3.0",
+    "tslib": "^2.8.1"
+  }
+}

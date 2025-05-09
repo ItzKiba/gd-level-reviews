@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model RequestChannel {
+  owner_account_id Int     @id
+  icon_id          Int
+  color1           Int
+  color2           Int
+  color3           Int
+  mod_level        Int     @default(0) // 0 = default, 1 = mod, 2 = elder mod
+  username         String  @db.VarChar(20)
+  max_requests     Int     @default(10)
+  levels           Json[]  @default([]) // Json triplet of level_id, submitter_id, and submitter_username
+  is_open          Boolean
+  blacklist        Int[]   @default([])
+}
+
+model Review {
+  id                   Int      @id @default(autoincrement())
+  owner_account_id     Int
+  owner_username       String  @db.VarChar(20)
+  requester_account_id Int
+  requester_username   String  @db.VarChar(20)
+  level_id             Int
+  level_name           String  @db.VarChar(20)
+  review_string        String   @db.VarChar(500)
+  date                 DateTime
+}
+
+model User {
+  account_id  Int     @id
+  is_verified Boolean @default(false)
+  is_banned   Boolean @default(false)
+}
+
+model StaffUser {
+  account_id  Int    @id
+  staff_level Int    @default(0)
+  passkey     String @db.VarChar(32)
+}
+
+model LogAction {
+  id                  Int      @id @default(autoincrement())
+  user_account_id     Int
+  staff_account_id    Int
+  set_verified_status Boolean
+  set_ban_status      Boolean
+  reason_string       String   @db.VarChar(100)
+  date                DateTime
+}

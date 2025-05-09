@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "RequestChannel" ALTER COLUMN "levels" SET DEFAULT ARRAY[]::JSONB[],
+ALTER COLUMN "blacklist" SET DEFAULT ARRAY[]::INTEGER[];
