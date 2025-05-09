@@ -108,7 +108,7 @@ bool ChannelCell::init(ChannelObject object, int index) {
     auto statusLabel = CCLabelBMFont::create(statusLabelText.c_str(), "bigFont.fnt");
     statusLabel->setScale(0.3f);
     statusLabel->setColor(statusColor);
-    statusLabel->setPosition(submitButton->getPosition() - CCPoint({0, 15.f}));
+    statusLabel->setPosition(submitButton->getPosition() - CCPoint(0, 15.f));
     this->addChild(statusLabel);
 
     return true;
